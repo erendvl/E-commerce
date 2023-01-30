@@ -12,9 +12,11 @@ namespace E_commerce.Data
         }
 
         public void Seed() 
-        {
-            
-                
+            {
+                var context = serviceScope.ServiceProvider.GetService<DataBaseContx>();
+
+                context.Database.EnsureCreated();
+
 
                 if (!dataBase.Actors_Movies.Any()) 
                 {
@@ -93,7 +95,7 @@ namespace E_commerce.Data
                             MovieId = 5
                         },
                         new Actors_Movies()
-                        {
+                {
                             ActorId = 5,
                             MovieId = 5
                         },
@@ -117,14 +119,14 @@ namespace E_commerce.Data
                     };
                 dataBase.Actors_Movies.AddRange(Actors_Movies);
                 dataBase.SaveChanges();
-            }
+                }
             
 
         
                 if (!dataBase.Actors.Any())
                 {
                 var Actor = new List<Actor>()
-                {
+                    {
                         new Actor()
                         {
                             Name = "Actor 1",
@@ -160,12 +162,12 @@ namespace E_commerce.Data
                 dataBase.Actors.AddRange(Actor);
                 dataBase.SaveChanges();
 
-            }
+                }
                 if (!dataBase.Movie.Any())
                 {
 
                 var Movie = new List<Movie>()
-                {
+                    {
                         new Movie()
                         {
                             Name = "Life",
@@ -242,11 +244,11 @@ namespace E_commerce.Data
                 dataBase.Movie.AddRange(Movie);
                 dataBase.SaveChanges();
 
-            }
+                }
                 if (!dataBase.Producer.Any())
                 {
                 var Producer = new List<Producer>()
-                {
+                    {
                         new Producer()
                         {
                             Name = "Producer 1",
@@ -279,11 +281,11 @@ namespace E_commerce.Data
                 dataBase.SaveChanges();
 
 
-            }
+                }
                 if (!dataBase.Cinema.Any())
                 {
                 var Cinema = new List<Cinema>()
-                {
+                    {
                         new Cinema()
                         {
                             Name = "Cinema 1",
@@ -318,10 +320,10 @@ namespace E_commerce.Data
                 dataBase.Cinema.AddRange(Cinema);
                 dataBase.SaveChanges();
 
-            }
+                }
             }
 
-        }
-   
     }
+   
+}
 
