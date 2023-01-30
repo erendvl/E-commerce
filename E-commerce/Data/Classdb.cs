@@ -4,21 +4,127 @@ namespace E_commerce.Data
 {
     public class Classdb
     {
+        private readonly DataBaseContx dataBase;
 
-        public void Seed(IApplicationBuilder applicationBuilder) 
+        public Classdb(DataBaseContx dataBase)
         {
-            using(var serviceScope=applicationBuilder.ApplicationServices.CreateScope()) 
-            {
+            this.dataBase = dataBase;
+        }
 
+        public void Seed() 
+        {
+            
+                
 
-                if (!context.Actors_Movies.Any()) 
+                if (!dataBase.Actors_Movies.Any()) 
                 {
 
-                }
-                if (!context.Actors.Any())
+                var Actors_Movies = new List<Actors_Movies>()
                 {
-                    context.Actors.AddRange(new List<Actor>()
-                    {
+                        new Actors_Movies()
+                        {
+                            ActorId = 1,
+                            MovieId = 1
+                        },
+                        new Actors_Movies()
+                        {
+                            ActorId = 3,
+                            MovieId = 1
+                        },
+
+                         new Actors_Movies()
+                        {
+                            ActorId = 1,
+                            MovieId = 2
+                        },
+                         new Actors_Movies()
+                        {
+                            ActorId = 4,
+                            MovieId = 2
+                        },
+
+                        new Actors_Movies()
+                        {
+                            ActorId = 1,
+                            MovieId = 3
+                        },
+                        new Actors_Movies()
+                        {
+                            ActorId = 2,
+                            MovieId = 3
+                        },
+                        new Actors_Movies()
+                        {
+                            ActorId = 5,
+                            MovieId = 3
+                        },
+
+
+                        new Actors_Movies()
+                        {
+                            ActorId = 2,
+                            MovieId = 4
+                        },
+                        new Actors_Movies()
+                        {
+                            ActorId = 3,
+                            MovieId = 4
+                        },
+                        new Actors_Movies()
+                        {
+                            ActorId = 4,
+                            MovieId = 4
+                        },
+
+
+                        new Actors_Movies()
+                        {
+                            ActorId = 2,
+                            MovieId = 5
+                        },
+                        new Actors_Movies()
+                        {
+                            ActorId = 3,
+                            MovieId = 5
+                        },
+                        new Actors_Movies()
+                        {
+                            ActorId = 4,
+                            MovieId = 5
+                        },
+                        new Actors_Movies()
+                        {
+                            ActorId = 5,
+                            MovieId = 5
+                        },
+
+
+                        new Actors_Movies()
+                        {
+                            ActorId = 3,
+                            MovieId = 6
+                        },
+                        new Actors_Movies()
+                        {
+                            ActorId = 4,
+                            MovieId = 6
+                        },
+                        new Actors_Movies()
+                        {
+                            ActorId = 5,
+                            MovieId = 6
+                        },
+                    };
+                dataBase.Actors_Movies.AddRange(Actors_Movies);
+                dataBase.SaveChanges();
+            }
+            
+
+        
+                if (!dataBase.Actors.Any())
+                {
+                var Actor = new List<Actor>()
+                {
                         new Actor()
                         {
                             Name = "Actor 1",
@@ -50,15 +156,16 @@ namespace E_commerce.Data
                             Description = "This is the Bio of the second actor",
                             PicUrl = "http://dotnethow.net/images/actors/actor-5.jpeg"
                         }
-                    });
-                    context.SaveChanges();
+                    };
+                dataBase.Actors.AddRange(Actor);
+                dataBase.SaveChanges();
 
-                }
-                if (!context.Movie.Any())
+            }
+                if (!dataBase.Movie.Any())
                 {
 
-                    context.Movie.AddRange(new List<Movie>()
-                    {
+                var Movie = new List<Movie>()
+                {
                         new Movie()
                         {
                             Name = "Life",
@@ -100,7 +207,7 @@ namespace E_commerce.Data
                             Name = "Race",
                             Description = "This is the Race movie description",
                             Price = 39.50,
-                            p = "http://dotnethow.net/images/movies/movie-6.jpeg",
+                            PicUrl = "http://dotnethow.net/images/movies/movie-6.jpeg",
                             StartDate = DateTime.Now.AddDays(-10),
                             EndDate = DateTime.Now.AddDays(-5),
                             CinemaId = 1,
@@ -131,13 +238,15 @@ namespace E_commerce.Data
                             ProducerId = 5,
                             Category = MovieCategory.Drama
                         }
-                    });
-                    context.SaveChanges();
-                }
-                if (!context.Producer.Any())
+                    };
+                dataBase.Movie.AddRange(Movie);
+                dataBase.SaveChanges();
+
+            }
+                if (!dataBase.Producer.Any())
                 {
-                    context.Producer.AddRange(new List<Producer>()
-                    {
+                var Producer = new List<Producer>()
+                {
                         new Producer()
                         {
                             Name = "Producer 1",
@@ -165,14 +274,16 @@ namespace E_commerce.Data
                             Description = "This is the Bio of the second actor",
                             PicUrl = "http://dotnethow.net/images/producers/producer-5.jpeg"
                         }
-                    });
-                    context.SaveChanges();
+                    };
+                dataBase.Producer.AddRange(Producer);
+                dataBase.SaveChanges();
 
-                }
-                if (!context.Cinema.Any())
+
+            }
+                if (!dataBase.Cinema.Any())
                 {
-                    context.Cinema.AddRange(new List<Cinema>()
-                    {
+                var Cinema = new List<Cinema>()
+                {
                         new Cinema()
                         {
                             Name = "Cinema 1",
@@ -203,11 +314,14 @@ namespace E_commerce.Data
                             PicUrl = "http://dotnethow.net/images/cinemas/cinema-5.jpeg",
                             Description = "This is the description of the first cinema"
                         },
-                    });
-                    context.SaveChanges();
+                    };
+                dataBase.Cinema.AddRange(Cinema);
+                dataBase.SaveChanges();
 
-                }
             }
+            }
+
         }
+   
     }
-}
+

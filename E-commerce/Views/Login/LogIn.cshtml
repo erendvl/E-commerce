@@ -1,0 +1,15 @@
+﻿@model VMLogin
+
+
+<form asp-controller="Login" asp-action="LogIn" method="post">
+    <div>
+        <h1>Log In</h1>
+        <input type="email" placeholder="Email" asp-for="Email"/>
+        <input type="password" placeholder="Pasword" asp-for="Password" />
+
+        <label>
+            <input type="checkbox" asp-for="KeepLoggedIn">Keep me logged in</input>
+            <button type="submit"> Log in</button>
+        </label>
+    </div>
+</form>

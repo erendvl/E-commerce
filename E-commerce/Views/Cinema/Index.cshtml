@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Cinema>
+
+
+
+
+
+<div>
+    <table>
+        <tr>
+            <th>Photo<th/>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+
+        @foreach(var cinema in Model)
+        {
+             <td><img src="@cinema.PicUrl"></td>
+            <td>@cinema.Name</td>
+            <td>@cinema.Description</td>
+        }
+    </table>
+
+</div>
